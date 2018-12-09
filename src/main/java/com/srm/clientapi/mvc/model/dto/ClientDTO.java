@@ -1,5 +1,6 @@
 package com.srm.clientapi.mvc.model.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.validation.constraints.NotEmpty;
@@ -11,8 +12,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class ClientDTO {
+public class ClientDTO implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	public ClientDTO() {
 		
 	}
@@ -27,6 +34,7 @@ public class ClientDTO {
 	@NotNull
 	private BigDecimal creditLimit;
 
+	
     @JsonProperty("riskDTO")
 	@NotNull
 	private RiskDTO riskDTO;
