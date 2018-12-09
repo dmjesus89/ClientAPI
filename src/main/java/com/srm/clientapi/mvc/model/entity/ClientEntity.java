@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -21,6 +22,7 @@ public class ClientEntity {
 
 	private BigDecimal creditLimit;
 	
-	private Integer idChargesRate;
+	@OneToOne
+	private RiskEntity risk;
 
 }
