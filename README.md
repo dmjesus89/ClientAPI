@@ -1,5 +1,4 @@
 O projeto está disponivel no Heroku:
-Projeto WEB: 
 API Client: https://clientapisrm.herokuapp.com/api/clients (GET and Post)
 Java 8
 
