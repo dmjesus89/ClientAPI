@@ -9,8 +9,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.srm.clientapi.config.util.ObjectMapperUtils;
-import com.srm.clientapi.mvc.dto.ClientDTO;
-import com.srm.clientapi.mvc.entity.ClientEntity;
+import com.srm.clientapi.mvc.model.dto.ClientDTO;
+import com.srm.clientapi.mvc.model.entity.ClientEntity;
 import com.srm.clientapi.mvc.repository.ClientRepository;
 
 import lombok.extern.slf4j.Slf4j;

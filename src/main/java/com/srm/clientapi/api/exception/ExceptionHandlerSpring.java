@@ -65,39 +65,12 @@ public class ExceptionHandlerSpring extends ResponseEntityExceptionHandler {
 				HttpStatus.NOT_FOUND, request);
 	}
 
-	
-
-	// erro de banco de dados inserir chave estrangeria nao existe
-	@ExceptionHandler({ DataIntegrityViolationException.class })
-	public ResponseEntity<Object> handleNestedServletException(DataIntegrityViolationException ex, WebRequest request) {
-
-		String msgUser = messageSource.getMessage("msg.default_error", null, LocaleContextHolder.getLocale());
-		String msgDeveloper = ExceptionUtils.getRootCauseMessage(ex);
-
-		return handleExceptionInternal(ex, Arrays.asList(msgUser, msgDeveloper), new HttpHeaders(),
-				HttpStatus.BAD_REQUEST, request);
-	}
-
-//	@ExceptionHandler({ ConstraintViolationException.class })
-//	public ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex,
-//			WebRequest request) {
-//
-//		String msgUser = messageSource.getMessage("msg.default_error", null, LocaleContextHolder.getLocale());
-//		String msgDeveloper = ExceptionUtils.getRootCauseMessage(ex);
-//
-//		return handleExceptionInternal(ex, Arrays.asList(msgUser, msgDeveloper), new HttpHeaders(),
-//				HttpStatus.BAD_REQUEST, request);
-//	}
-
-	@ExceptionHandler(ConstraintViolationException.class)
-	public ResponseEntity<?> validateError(ConstraintViolationException ex) {
-		return ResponseEntity.badRequest()
-				.body(ex.getConstraintViolations().stream().map(cv -> cv.getMessage()).collect(Collectors.toList()));
-	}
-
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<?> otherErrors(Exception ex) {
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+		String msgUser = messageSource.getMessage("msg.default_error", null, LocaleContextHolder.getLocale());
+		String msgDeveloper = ExceptionUtils.getRootCauseMessage(ex);
+		
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Arrays.asList(msgUser, msgDeveloper));
 	}
 
 	private List<Error> createListError(BindingResult results) {

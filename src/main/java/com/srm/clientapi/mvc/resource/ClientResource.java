@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.srm.clientapi.api.event.ResourceCreateEvent;
-import com.srm.clientapi.mvc.dto.ClientDTO;
+import com.srm.clientapi.mvc.model.dto.ClientDTO;
 import com.srm.clientapi.mvc.service.ClientServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
