@@ -18,9 +18,6 @@ import org.springframework.stereotype.Component;
 
 import com.srm.clientapi.config.property.ApiProperty;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class Cors implements Filter {
@@ -34,11 +31,12 @@ public class Cors implements Filter {
 
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
-		
+
 		response.setHeader("Access-Control-Allow-Origin", property.getOriginPermitida());
 		response.setHeader("Access-Control-Allow-Credentials", "true");
 
-		if ("OPTIONS".equals(request.getMethod()) && request.getHeader("Origin").equalsIgnoreCase(property.getOriginPermitida())) {
+		if ("OPTIONS".equals(request.getMethod())
+				&& request.getHeader("Origin").equalsIgnoreCase(property.getOriginPermitida())) {
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
 			response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept");
 			response.setHeader("Access-Control-Max-Age", "3600");

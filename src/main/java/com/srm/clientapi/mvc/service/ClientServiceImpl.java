@@ -13,17 +13,14 @@ import com.srm.clientapi.mvc.model.dto.ClientDTO;
 import com.srm.clientapi.mvc.model.entity.ClientEntity;
 import com.srm.clientapi.mvc.repository.ClientRepository;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Service
 public class ClientServiceImpl {
 
 	@Autowired
 	private ClientRepository clientRepository;
-	
-	@Autowired 
-    private ObjectMapperUtils objectMapperUtils;
+
+	@Autowired
+	private ObjectMapperUtils objectMapperUtils;
 
 	public List<ClientDTO> getClients() {
 		List<ClientEntity> listUser = (List<ClientEntity>) clientRepository.findAll();
@@ -41,7 +38,7 @@ public class ClientServiceImpl {
 	}
 
 	public ClientDTO save(ClientDTO clientDTO) {
-		
+
 		// chamada para validacao de juros
 		ClientEntity clientEntity = objectMapperUtils.map(clientDTO, ClientEntity.class);
 		saveUser(clientEntity);

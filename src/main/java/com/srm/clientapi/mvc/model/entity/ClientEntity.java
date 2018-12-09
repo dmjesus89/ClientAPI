@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Data
-@Entity(name = "Client")
+@Entity(name = "CLIENT")
 public class ClientEntity {
 
 	@Id
@@ -21,6 +21,6 @@ public class ClientEntity {
 
 	private BigDecimal creditLimit;
 	
-	private Integer chargesRate;
+	private Integer idChargesRate;
 
 }
