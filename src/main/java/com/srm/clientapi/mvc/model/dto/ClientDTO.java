@@ -12,6 +12,10 @@ import lombok.Data;
 
 @Data
 public class ClientDTO {
+	
+	public ClientDTO() {
+		
+	}
 
 	private Long id;
 

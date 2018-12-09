@@ -10,6 +10,10 @@ import lombok.Data;
 
 @Data
 public class RiskDTO {
+	
+	public RiskDTO() {
+		
+	}
 
 	private Long id;
 
