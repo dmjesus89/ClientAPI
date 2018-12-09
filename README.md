@@ -1,6 +1,7 @@
 O projeto está disponivel no Heroku:
 Projeto WEB: 
-API Client:
+API Client: https://clientapisrm.herokuapp.com/api/clients (GET and Post)
+API Risk: 
 
 Foi utilizado o heroku para aplicação web, api e banco de dados
 Banco de dados: mysql
@@ -12,4 +13,4 @@ Angular
 #url = https://projectlombok.org/download
 
 
-o cors está permitindo requisao de 
+A api está aceitando requisição JS apenas de localhost:4200, caso precise habilitar outro host alterar no .properties
