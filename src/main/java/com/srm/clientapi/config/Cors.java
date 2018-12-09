@@ -20,7 +20,7 @@ import com.srm.clientapi.config.property.ApiProperty;
 
 import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class Cors implements Filter {
@@ -36,6 +36,8 @@ public class Cors implements Filter {
 		HttpServletResponse response = (HttpServletResponse) resp;
 		
 
+		log.info( request.getHeader("Origin"));
+		
 		response.setHeader("Access-Control-Allow-Origin", property.getOriginPermitida());
 		response.setHeader("Access-Control-Allow-Credentials", "true");
 
