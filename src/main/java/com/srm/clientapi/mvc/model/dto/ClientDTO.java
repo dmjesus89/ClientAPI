@@ -13,16 +13,6 @@ import lombok.Data;
 
 @Data
 public class ClientDTO implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-
-	public ClientDTO() {
-		
-	}
 
 	private Long id;
 
@@ -34,9 +24,7 @@ public class ClientDTO implements Serializable {
 	@NotNull
 	private BigDecimal creditLimit;
 
-	
-    @JsonProperty("riskDTO")
 	@NotNull
-	private RiskDTO riskDTO;
+	private BigDecimal chargesRate;
 
 }

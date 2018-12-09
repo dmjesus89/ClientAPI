@@ -22,7 +22,6 @@ public class ClientEntity {
 
 	private BigDecimal creditLimit;
 	
-	@OneToOne
-	private RiskEntity risk;
+	private BigDecimal chargesRate;
 
 }

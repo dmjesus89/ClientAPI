@@ -12,11 +12,6 @@ import lombok.Data;
 @Data
 public class RiskDTO implements Serializable {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2L;
-
 	public RiskDTO() {
 		
 	}

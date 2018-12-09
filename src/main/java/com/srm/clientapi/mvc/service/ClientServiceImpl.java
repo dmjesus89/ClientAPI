@@ -41,8 +41,6 @@ public class ClientServiceImpl {
 	}
 
 	public ClientDTO save(ClientDTO clientDTO) {
-		log.info("vai chamar");
-		// chamada para validacao de juros
 		ClientEntity clientEntity = objectMapperUtils.map(clientDTO, ClientEntity.class);
 		log.info("vai chamar 2");
 		saveUser(clientEntity);
