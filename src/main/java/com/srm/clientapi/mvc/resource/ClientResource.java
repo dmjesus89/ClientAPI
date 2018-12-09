@@ -45,7 +45,7 @@ public class ClientResource {
 		if (!listUser.isEmpty()) {
 			return ResponseEntity.ok(listUser);
 		}
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.ok().build();
 	}
 	
 	
