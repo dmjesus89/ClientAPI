@@ -19,6 +19,9 @@ import com.srm.clientapi.api.event.ResourceCreateEvent;
 import com.srm.clientapi.mvc.model.dto.ClientDTO;
 import com.srm.clientapi.mvc.service.ClientServiceImpl;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/clients")
 public class ClientResource {
@@ -31,6 +34,7 @@ public class ClientResource {
 
 	@PostMapping
 	public ResponseEntity<ClientDTO> save(@Valid @RequestBody ClientDTO clientDTO, HttpServletResponse response) {
+		log.info("vai chamar");
 		clientDTO = clientService.save(clientDTO);
 		publisher.publishEvent(new ResourceCreateEvent(this, response, clientDTO.getId()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(clientDTO);

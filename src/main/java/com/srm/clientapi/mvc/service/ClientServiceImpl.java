@@ -13,6 +13,9 @@ import com.srm.clientapi.mvc.model.dto.ClientDTO;
 import com.srm.clientapi.mvc.model.entity.ClientEntity;
 import com.srm.clientapi.mvc.repository.ClientRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class ClientServiceImpl {
 
@@ -38,9 +41,10 @@ public class ClientServiceImpl {
 	}
 
 	public ClientDTO save(ClientDTO clientDTO) {
-
+		log.info("vai chamar");
 		// chamada para validacao de juros
 		ClientEntity clientEntity = objectMapperUtils.map(clientDTO, ClientEntity.class);
+		log.info("vai chamar 2");
 		saveUser(clientEntity);
 		clientDTO = objectMapperUtils.map(clientEntity, ClientDTO.class);
 		return clientDTO;

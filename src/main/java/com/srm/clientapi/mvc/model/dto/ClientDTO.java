@@ -6,7 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.srm.clientapi.mvc.model.entity.RiskEntity;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
@@ -27,6 +27,7 @@ public class ClientDTO {
 	@NotNull
 	private BigDecimal creditLimit;
 
+    @JsonProperty("riskDTO")
 	@NotNull
 	private RiskDTO riskDTO;
 
