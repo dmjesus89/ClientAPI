@@ -3,6 +3,8 @@ package com.srm.clientapi.mvc.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,13 @@ public class RiskServiceImpl {
 			return riskDTO;
 		}
 		throw new EmptyResultDataAccessException(1);
+	}
+
+	public RiskDTO save(RiskDTO riskDTO) {
+		RiskEntity riskEntity = objectMapperUtils.map(riskDTO, RiskEntity.class);
+		riskRepository.save(riskEntity);
+		riskDTO = objectMapperUtils.map(riskEntity, RiskDTO.class);
+		return riskDTO;
 	}
 
 }
